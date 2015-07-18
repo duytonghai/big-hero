@@ -1,0 +1,32 @@
+{
+  "name": "big-hero-app",
+  "version": "0.1.0",
+  "devDependencies": {
+    "browserify": "^10.0.0",
+    "express-jsxtransform": "^3.0.2",
+    "fluxxor": "^1.5.0",
+    "gulp": "~3.8.11",
+    "gulp-node-inspector": "~0.0.4",
+    "lodash": "~3.8.0",
+    "reactify": "^1.1.0",
+    "rewireify": "^0.2.0",
+    "uglifyify": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.0.0",
+    "node-jsx": "~0.12.0",
+    "react": "0.13.1",
+    "react-router": "0.13.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "browserify": {
+    "extension": [ "jsx" ],
+    "transform": ["reactify"]
+  },
+  "scripts": {
+    "build": "browserify -e app/main.jsx -t reactify --extension=.jsx -o public/scripts/bundle.dev.js",
+    "build-min": "browserify -e app/main.jsx -t reactify --extension=.jsx -g uglifyify -o public/scripts/bundle.min.js"
+  }
+}
