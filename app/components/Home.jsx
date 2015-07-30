@@ -14,7 +14,7 @@ var Home = React.createClass({
     return (
       <div>
         Home<br />
-        <a href="/#/about">About</a>
+        <Link to={constants.routeNames.ABOUT_PAGE}>About</Link>
       </div>
     );
   }

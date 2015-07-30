@@ -1,16 +1,14 @@
 var React = require('react');
 
-var Home = require('../app/components/Home');
+var App = require('../app/App');
 
 var Template = require('./template');
 
 function Index() {}
 
 Index.prototype.load = function(callback) {
-  var home = React.renderToString(<Home />);
-
   new Template('../app/index.html').render({
-    app: home
+    app: <App />
   }, callback);
 };
 
