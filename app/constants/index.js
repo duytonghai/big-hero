@@ -3,5 +3,6 @@
  */
 
 module.exports = {
-  routeNames: require('./routeNames')
+  routeNames: require('./routeNames'),
+  actions: require('./actions')
 };

@@ -9,6 +9,7 @@
     "gulp-node-inspector": "~0.0.4",
     "lodash": "~3.8.0",
     "reactify": "^1.1.0",
+    "request": "^2.36.0",
     "rewireify": "^0.2.0",
     "uglifyify": "^3.0.0"
   },
@@ -22,8 +23,12 @@
     "node": ">=0.10.0"
   },
   "browserify": {
-    "extension": [ "jsx" ],
-    "transform": ["reactify"]
+    "extension": [
+      "jsx"
+    ],
+    "transform": [
+      "reactify"
+    ]
   },
   "scripts": {
     "build": "browserify -e app/main.jsx -t reactify --extension=.jsx -o public/scripts/bundle.dev.js",
