@@ -40,8 +40,6 @@ componentWillMount: function() {
             <p>The oppotunity to improve yourself</p>
             <ul className="icons">
               <li><div className="fb-share-button" data-href="http://big-hero.com:8000" data-layout="button"></div></li>
-              <li><a href="https://www.pinterest.com/haiduytong/big-hero/" target="_blank" className="icon fa-pinterest"><span className="label">Twitter</span></a></li>
-              <li><a href="https://github.com/duytonghai/big-hero" target="_blank" className="icon fa-github"><span className="label">Github</span></a></li>
             </ul>
           </header>
 
@@ -51,6 +49,10 @@ componentWillMount: function() {
             <ul className="copyright">
               <li>Developed by Big Hero Storm Team</li>
               <li>Designed by <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+            <ul className="icons">
+              <li><a href="https://www.pinterest.com/haiduytong/big-hero/" target="_blank" className="icon fa-pinterest"><span className="label">Twitter</span></a></li>
+              <li><a href="https://github.com/duytonghai/big-hero" target="_blank" className="icon fa-github"><span className="label">Github</span></a></li>
             </ul>
           </footer>
       </div>

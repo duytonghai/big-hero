@@ -4,16 +4,14 @@
 
 'use strict';
 
-var request = require('request');
+var $ = require('jquery');
 
 var API = {};
 
 API.get = function(url, callback) {
-  request({
-    url: 'http://big-hero.com:8000/' + url
-  }, function(error, response, body) {
-    callback(JSON.parse(body));
-  });
+  $.get(url, {}, function(body) {
+    callback(body);
+  }, 'json');
 };
 
 module.exports = API;
