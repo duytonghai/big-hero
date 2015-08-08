@@ -10,7 +10,7 @@ var PIN_ACTIONS = constants.actions.PINS;
 
 var PinStore = Fluxxor.createStore({
   initialize: function() {
-    this.pinList = {};
+    this.pinList = [];
 
     this.bindActions(
       PIN_ACTIONS.GET_LIST, this.onFetchPinList

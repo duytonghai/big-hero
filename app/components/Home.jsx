@@ -11,58 +11,40 @@ var StoreWatchMixin = Fluxxor.StoreWatchMixin;
 var Link = Router.Link;
 
 var constants = require('../constants');
+var mainScript = require('../libs/main');
+
+var Collection = require('./Collection');
+
+var BIG_HERO_BOARD_ID = constants.values.BIG_HERO_BOARD_ID;
 
 var Home = React.createClass({
   displayName: 'Home',
-  mixins: [FluxMixin, StoreWatchMixin('PinStore', 'BoardStore')],
+  mixins: [FluxMixin, StoreWatchMixin('PinStore')],
   getStateFromFlux: function() {
     var pinStore = this.getFlux().store('PinStore');
-    var boardStore = this.getFlux().store('BoardStore');
 
     return {
-      pinList: pinStore.getList(),
-      boardList: boardStore.getList()
+      pinList: pinStore.getList() || []
     };
   },
   componentDidMount: function() {
-    if (_.isEmpty(this.state.boardList)) {
-      this.getFlux().actions.getBoards();
+    if (!this.state.pinList.length) {
+      this.getFlux().actions.getPins(BIG_HERO_BOARD_ID);
     }
   },
-  selectBoard: function(e) {
-    var boardId = e.target.value;
-    this.getFlux().actions.getPins(boardId);
+  componentDidUpdate: function(prevProps, prevState) {
+    if (prevState.pinList.length !== this.state.pinList.length) {
+      mainScript.init();
+    }
   },
   render: function() {
-    var display, select;
+    var display = <div />;
     var pinList = this.state.pinList;
-    var boardList = this.state.boardList;
-
-    if(boardList.length > 0) {
-      select = <select onChange={this.selectBoard}>
-          <option key="default">Select</option>
-          {
-            _.map(boardList, function(board) {
-              return <option key={board.id} value={board.id}>{board.name}</option>;
-            })
-          }
-        </select>
-    }
 
     if (pinList.length > 0) {
-      display = _.map(pinList, function(pin) {
-        return <div key={pin.id}><img src={pin.image.original.url} /></div>;
-      });
+      display = <Collection pinList={pinList} />
     }
-
-    return (
-      <div>
-        Home<br />
-        <Link to={constants.routeNames.ABOUT_PAGE}>About</Link><br />
-        {select}
-        {display}
-      </div>
-    );
+    return display;
   }
 });
 

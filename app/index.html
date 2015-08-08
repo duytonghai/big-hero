@@ -3,13 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Big Hero App</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/fave-icon.png" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="scripts/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="styles/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="styles/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="styles/ie9.css" /><![endif]-->
+    <noscript><link rel="stylesheet" href="styles/noscript.css" /></noscript>
+    <script src="scripts/jquery.min.js"></script>
+    <meta property="og:url"           content="http://localhost:8000/#/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Big Hero App" />
+    <meta property="og:description"   content="Big Herp" />
   </head>
   <body>
     <div id="app">{{yield:app}}</div>
     <script src="scripts/bundle.js"></script>
+    <script src="scripts/skel.min.js"></script>
+    <!--[if lte IE 8]><script src="scripts/ie/respond.min.js"></script><![endif]-->
   </body>
 </html>

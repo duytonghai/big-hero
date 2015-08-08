@@ -11,7 +11,7 @@ var BOARDS = constants.actions.BOARDS;
 
 module.exports = {
   getPins: function(id) {
-    var fields = 'image';
+    var fields = 'image,note';
     api.get('boards/' + id + '/pins?fields=' + fields, function(data) {
       this.dispatch(PINS.GET_LIST, data);
     }.bind(this));
