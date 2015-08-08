@@ -102,9 +102,12 @@ var Collection = React.createClass({
             React.createElement("h1", null, "Big Hero"), 
             React.createElement("p", null, "The oppotunity to improve yourself"), 
             React.createElement("ul", {className: "icons"}, 
-              React.createElement("li", null, React.createElement("a", {href: "https://www.facebook.com/", target: "_blank", className: "icon fa-facebook"}, React.createElement("span", {className: "label"}, "Facebook"))), 
-              React.createElement("li", null, React.createElement("a", {href: "https://www.twitter.com/", target: "_blank", className: "icon fa-twitter"}, React.createElement("span", {className: "label"}, "Twitter"))), 
-              React.createElement("li", null, React.createElement("a", {href: "https://github.com/duytonghai/big-hero", target: "_blank", className: "icon fa-github"}, React.createElement("span", {className: "label"}, "Github")))
+              React.createElement("li", null, React.createElement("div", {className: "addthis_native_toolbox"}))
+              /*
+              <li><a href="https://www.facebook.com/" target="_blank" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
+              <li><a href="https://www.twitter.com/" target="_blank" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
+              <li><a href="https://github.com/duytonghai/big-hero" target="_blank" className="icon fa-github"><span className="label">Github</span></a></li>
+              */
             )
           ), 
 
@@ -236,7 +239,7 @@ var API = {};
 
 API.get = function(url, callback) {
   request({
-    url: 'http://localhost:8000/' + url
+    url: 'http://big-hero.com:8000/' + url
   }, function(error, response, body) {
     callback(JSON.parse(body));
   });
