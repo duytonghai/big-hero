@@ -12,6 +12,17 @@ var Collection = React.createClass({
   propTypes: {
     pinList: React.PropTypes.array
   },
+
+componentWillMount: function() {
+  (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1044498398907793";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+},
+
   render: function() {
     var collection = _.map(this.props.pinList, function(pin) {
       return <article key={pin.id}>
@@ -19,7 +30,6 @@ var Collection = React.createClass({
           <img src={pin.image.original.url} alt="" />
         </a>
         <h2>{pin.note}</h2>
-        <a href="https://www.facebook.com/">Facebook</a>
       </article>;
     });
 
@@ -29,8 +39,8 @@ var Collection = React.createClass({
             <h1>Big Hero</h1>
             <p>The oppotunity to improve yourself</p>
             <ul className="icons">
-              <li><a href="https://www.facebook.com/" target="_blank" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
-              <li><a href="https://www.twitter.com/" target="_blank" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
+              <li><div className="fb-share-button" data-href="http://big-hero.com:8000" data-layout="button"></div></li>
+              <li><a href="https://www.pinterest.com/haiduytong/big-hero/" target="_blank" className="icon fa-pinterest"><span className="label">Twitter</span></a></li>
               <li><a href="https://github.com/duytonghai/big-hero" target="_blank" className="icon fa-github"><span className="label">Github</span></a></li>
             </ul>
           </header>

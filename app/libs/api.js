@@ -10,7 +10,7 @@ var API = {};
 
 API.get = function(url, callback) {
   request({
-    url: 'http://localhost:8000/' + url
+    url: 'http://big-hero.com:8000/' + url
   }, function(error, response, body) {
     callback(JSON.parse(body));
   });

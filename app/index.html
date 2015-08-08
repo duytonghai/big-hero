@@ -10,13 +10,12 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="styles/ie9.css" /><![endif]-->
     <noscript><link rel="stylesheet" href="styles/noscript.css" /></noscript>
     <script src="scripts/jquery.min.js"></script>
-    <meta property="og:url"           content="http://localhost:8000/#/" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Big Hero App" />
-    <meta property="og:description"   content="Big Herp" />
   </head>
   <body>
+    <div id="fb-root"></div>
+
     <div id="app">{{yield:app}}</div>
+    <div class="addthis_native_toolbox"></div>
     <script src="scripts/bundle.js"></script>
     <script src="scripts/skel.min.js"></script>
     <!--[if lte IE 8]><script src="scripts/ie/respond.min.js"></script><![endif]-->
