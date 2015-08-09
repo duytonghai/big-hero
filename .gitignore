@@ -1,8 +1,8 @@
 *.bak
 *.log
 *.dat
-*.dev.js
-*.min.js
+bundle*
+*.dev
 
 .DS_Store
 Thumbs.db
